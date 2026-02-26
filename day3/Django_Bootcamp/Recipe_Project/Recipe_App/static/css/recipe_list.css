@@ -1,0 +1,117 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+    background-color: #1e293b;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    margin-left: 25px;
+    font-weight: 400;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links .username {
+    color: #ffffff;
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+/* Container */
+.container {
+    padding: 40px 20px;
+}
+
+.container h2 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 32px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.no-recipes {
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+/* Recipe Card */
+.recipe-card {
+    background: #ffffff;
+    padding: 25px;
+    margin: 20px auto;
+    width: 65%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.recipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card h3 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #333;
+    font-weight: 600;
+}
+
+.recipe-card p {
+    margin: 10px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Add Button */
+.add-btn {
+    display: block;
+    width: 220px;
+    margin: 40px auto 0;
+    text-align: center;
+    padding: 12px;
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

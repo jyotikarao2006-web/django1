@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Recipes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/recipe_list.css' %}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">🍽 Smart Recipe Book</div>
+    <div class="nav-links">
+        <a href="{% url 'home' %}">Add Recipe</a>
+        <a href="{% url 'recipe_list' %}">View Recipes</a>
+        <span class="username">Hello, {{ user.username }}</span>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h2>Your Recipes</h2>
+
+    {% for recipe in recipes %}
+    <div class="recipe-card">
+        <h3>{{ recipe.title }}</h3>
+        <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+        <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+    </div>
+    {% empty %}
+    <p class="no-recipes">No recipes yet. Start adding some!</p>
+    {% endfor %}
+
+    
+</div>
+</body>
+</html>

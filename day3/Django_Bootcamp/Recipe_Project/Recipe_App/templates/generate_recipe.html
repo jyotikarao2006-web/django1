@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Recipe Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/generate_recipe.css' %}">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <nav>
+            <div class="logo">🍽 Smart Recipe Book</div>
+            <div class="nav-links">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'recipe_list' %}">View Recipes</a>
+                <a href="{% url 'generate_recipe' %}" class="active">AI Generator</a>
+                <span class="username">Hello, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <h1>AI Recipe Generator</h1>
+            <p>Enter a title and ingredients — let AI craft the perfect recipe for you!</p>
+        </section>
+
+        <section class="form-section">
+            <div class="form-container">
+                <h2>Generate a Recipe</h2>
+
+                {% if error %}
+                <div class="error-msg">{{ error }}</div>
+                {% endif %}
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">Recipe Title</label>
+                        <input type="text" id="title" name="title" placeholder="e.g. Spicy Chicken Pasta" value="{{ title|default:'' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredients">Ingredients</label>
+                        <textarea id="ingredients" name="ingredients" placeholder="e.g. chicken, pasta, garlic, chili flakes, olive oil" required>{{ ingredients|default:'' }}</textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">🚀 Generate Recipe</button>
+                </form>
+
+                <!-- Result Div -->
+                <!-- add generative logic here -->   
+                <div class="result-box">
+                    {% if recipe_result %}
+                        <h3>📖 Your AI-Generated Recipe</h3>
+                        {{ recipe_result | safe}}
+                    {% else %}
+                        <p class="result-placeholder">Your AI-generated recipe will appear here...</p>
+                    {% endif %}
+                </div>
+                
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Smart Recipe Book | Powered by Gemini AI</p>
+    </footer>
+
+</body>
+</html>
